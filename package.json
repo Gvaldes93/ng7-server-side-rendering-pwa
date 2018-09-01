@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:prod": "http-server -c-1 -P http://localhost:3000 dist/PWA",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
