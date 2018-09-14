@@ -1,3 +1,4 @@
+// @ts-ignore
 const USER_SUBSCRIPTIONS = require('./in-memory-db');
 
 module.exports = function addPushsubscriber(req, res) {
