@@ -3,12 +3,13 @@
   <img src="assets/images/todo.png" width=30>
 
   <h1>
-    Welcome to Todos checklist pwa!
+    Welcome to live newsLetter!
   </h1>
   <h2>version - 7 </h2>
 </div>
 
 <mat-card style="margin: 2em;">
+  <button mat-button (click)="subscribe()">Subscribe</button>
   <mat-selection-list #shoes>
     <mat-list-option *ngFor="let todo of todoList">
       {{todo.title}}

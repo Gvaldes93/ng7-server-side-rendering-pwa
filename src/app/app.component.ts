@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TodoService} from './services/todo.service';
+import {NewsletterService} from './services/newsletter.service';
 import {Todo} from './model/todo.model';
 import {SwPush, SwUpdate} from '@angular/service-worker';
 
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   title = 'PWA';
   todoList: Todo[] = [];
 
-  constructor(private todoService: TodoService,
+  constructor(private newsLetterService: NewsletterService,
               private swUpdate: SwUpdate,
               private swPush: SwPush) {
   }
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
       });
     }
 
-    this.todoService.todoList().subscribe((data: Todo[]) => {
+    this.newsLetterService.newsLettersList().subscribe((data: Todo[]) => {
       this.todoList = data;
     });
   }
@@ -34,6 +34,13 @@ export class AppComponent implements OnInit {
   public subscribe() {
     this.swPush.requestSubscription({
       serverPublicKey: 'BP8e-Ieji2LmjEznvXFUt0_ck457L8mH4wS0Wes7_ER5dgWfLl3mwH6UW5XasADxzCNKLhnajzNO2oFoUIUNbuE'
+    }).then(sub => {
+      // subscription contains an url to the browser vendor push notification service plus a unique broswer identifier
+      // when the server sends a push notification ,e.g with Chrome,
+      // it will go to firebase which delivers to all its chrome browsers
+      this.newsLetterService.addPushSubscriber(sub).subscribe(res => {
+        console.log(res);
+      });
     });
   }
 

@@ -28,7 +28,7 @@
     {
       "name": "Todo backend",
       "urls": [
-        "http://localhost:3000/todos"
+        "http://localhost:9000/api/todos"
       ],
       "cacheConfig": {
         "strategy": "freshness",

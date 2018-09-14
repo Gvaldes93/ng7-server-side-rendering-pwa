@@ -2,10 +2,8 @@ const express = require('express');
 import {Application} from 'express';
 
 const readAllTodos = require('./read-all-todos.route');
-
+const addPushSubscriber = require('./add-push-subscriber.route');
 const bodyParser = require('body-parser');
-
-
 const app: Application = express();
 
 
@@ -21,6 +19,8 @@ app.use(function (req, res, next) {
 app.route('/api/todos')
   .get(readAllTodos);
 
+app.route('/api/notifications')
+  .post(addPushSubscriber);
 
 // launch an HTTP Server
 const httpServer = app.listen(9000, () => {
