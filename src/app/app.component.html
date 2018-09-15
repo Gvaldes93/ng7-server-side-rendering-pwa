@@ -13,11 +13,11 @@
   <button mat-button (click)="subscribe()" [disabled]="sub">Subscribe</button>
   <button mat-flat-button (click)="sendNewsLetter()">Send to subscribers</button>
 
-  <mat-selection-list #shoes>
-    <mat-list-option *ngFor="let todo of todoList">
+  <mat-list #shoes>
+    <mat-list-item *ngFor="let todo of todoList">
       {{todo.title}}
-    </mat-list-option>
-  </mat-selection-list>
+    </mat-list-item>
+  </mat-list>
 </mat-card>
 
 
