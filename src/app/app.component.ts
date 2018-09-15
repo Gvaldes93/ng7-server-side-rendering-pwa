@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   title = 'PWA';
   todoList: Todo[] = [];
 
+  sub: PushSubscription;
+
   constructor(private newsLetterService: NewsletterService,
               private swUpdate: SwUpdate,
               private swPush: SwPush) {
@@ -35,13 +37,18 @@ export class AppComponent implements OnInit {
     this.swPush.requestSubscription({
       serverPublicKey: 'BP8e-Ieji2LmjEznvXFUt0_ck457L8mH4wS0Wes7_ER5dgWfLl3mwH6UW5XasADxzCNKLhnajzNO2oFoUIUNbuE'
     }).then(sub => {
+      this.sub = sub;
       // subscription contains an url to the browser vendor push notification service plus a unique broswer identifier
       // when the server sends a push notification ,e.g with Chrome,
-      // it will go to firebase which delivers to all its chrome browsers
+      // it will go to firebase cloud messaging which delivers to all its chrome browsers
       this.newsLetterService.addPushSubscriber(sub).subscribe(res => {
         console.log(res);
       });
     });
   }
 
+  public sendNewsLetter() {
+    console.log('Sending Newsletter to all subscribers');
+    this.newsLetterService.send().subscribe();
+  }
 }

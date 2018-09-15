@@ -28,7 +28,7 @@
     {
       "name": "Todo backend",
       "urls": [
-        "http://localhost:9000/api/todos"
+        "http://localhost:9000/api/newsletters"
       ],
       "cacheConfig": {
         "strategy": "freshness",

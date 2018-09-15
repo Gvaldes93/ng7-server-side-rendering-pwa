@@ -11,7 +11,7 @@ module.exports = function sendNewsletter(req, res) {
     'notification': {
       'title': 'Angular news',
       'body': 'Nesletter available!',
-      'icon': 'assets/mian-page-logo.png',
+      'icon': 'assets/images/todo.png',
       'vibrate': [100, 50, 100],
       'data': {
         'dateOfArrival': Date.now(),
@@ -27,7 +27,7 @@ module.exports = function sendNewsletter(req, res) {
 
 
   Promise.all(USER_SUBSCRIPTIONS.map(sub => {
-    webpush.webpush.sendNotification(sub, JSON.stringify(notificationPayload));
+    webpush.sendNotification(sub, JSON.stringify(notificationPayload));
   }));
 
   res.status(200).json({message: 'Newsletter sent successfully'});
