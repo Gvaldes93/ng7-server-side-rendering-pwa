@@ -12,8 +12,8 @@ const app: Application = express();
 const webpush = require('web-push');
 
 const vapidKeys = {
-  publicKey: 'BP8e-Ieji2LmjEznvXFUt0_ck457L8mH4wS0Wes7_ER5dgWfLl3mwH6UW5XasADxzCNKLhnajzNO2oFoUIUNbuE',
-  privateKey: '872cUOzYr8Q81-quxiaSG4pFq7LZf0UOBe3dRCKQTXw'
+  publicKey: process.env.WEB_PUSH_PUBLIC_KEY,
+  privateKey: process.env.WEB_PUSH_PRIVATE_KEY
 };
 
 webpush.setVapidDetails('mailto:germanvs93@hotmail.com', vapidKeys.publicKey, vapidKeys.privateKey);

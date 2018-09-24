@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NewsletterService} from './services/newsletter.service';
 import {Todo} from './model/todo.model';
 import {SwPush, SwUpdate} from '@angular/service-worker';
+import { environment } from './../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -33,13 +34,13 @@ export class AppComponent implements OnInit {
     });
   }
 
-  public subscribe() {
+  public subscribeToNewsletter() {
     this.swPush.requestSubscription({
-      serverPublicKey: 'BP8e-Ieji2LmjEznvXFUt0_ck457L8mH4wS0Wes7_ER5dgWfLl3mwH6UW5XasADxzCNKLhnajzNO2oFoUIUNbuE'
+      serverPublicKey: environment.webPush.publicKey
     }).then(sub => {
       this.sub = sub;
-      // subscription contains an url to the browser vendor push notification service plus a unique broswer identifier
-      // when the server sends a push notification ,e.g with Chrome,
+      // subscription contains an url to the browser vendor push notification service plus a unique browser identifier
+      // when the server sends a push notification, e.g with Chrome,
       // it will go to firebase cloud messaging which delivers to all its chrome browsers
       this.newsLetterService.addPushSubscriber(sub).subscribe(res => {
         console.log(res);
