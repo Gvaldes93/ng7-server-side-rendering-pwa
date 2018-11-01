@@ -1,12 +1,12 @@
 # PWA
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 Is an example of a Progressive Web app emulating a newsletter renderer:
-Service workers with background downloading installation.
-Push notifications. 
-Application shell.
-Application data caching.
-Flight mode.
-One click installation (add to home screen)
+* Service workers with background downloading installation.
+* Push notifications. 
+* Application shell.
+* Application consumed data caching.
+* Flight mode.
+* One click installation (add to home screen)
 
 ## Requisites ##
 To enable the application stack (angular app + server) to send push notifications the angular app 
