@@ -4,12 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "http-server -c-1 -P http://localhost:3000 dist/PWA",
+    "start:prod": "http-server -g -o -c-1 -P https://localhost:3000 dist/PWA",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "server": "./node_modules/.bin/ts-node ./server/server.ts"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {

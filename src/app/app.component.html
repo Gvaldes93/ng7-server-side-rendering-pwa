@@ -5,15 +5,14 @@
   <h1>
     Welcome to live newsLetter!
   </h1>
-  <h2>version - 8 notifications </h2>
 </div>
 
 <mat-card style="margin: 2em;">
 
-  <button mat-button (click)="subscribeToNewsletter()" [disabled]="sub">Subscribe</button>
+  <button mat-button (click)="subscribeToNewsletter()" [disabled]="sub">Subscribe to push notifications</button>
   <button mat-flat-button (click)="sendNewsLetter()">Send to subscribers</button>
-
-  <mat-list #shoes>
+  <h3>Newsletters</h3>
+  <mat-list>
     <mat-list-item *ngFor="let todo of todoList">
       {{todo.title}}
     </mat-list-item>
