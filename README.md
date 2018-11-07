@@ -7,17 +7,13 @@ Is an example of a Progressive Web app emulating a newsletter renderer:
 * Server data caching in browser.
 * Flight mode.
 
-## Requisites ##
-To enable the application stack (angular app + server) to send push notifications the angular app 
-needs to be provided with the server public key as per [PUSH API](https://developer.mozilla.org/en-US/docs/Web/API/Push_API).
-Step by step instructions below.
-
+## Quickstart
 #### Create vapid keys ####
 `npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
 to pass them to the server and angular app in the next steps.
 
 #### run newsletter-server ####
-you can either get the newsletter-server from [github](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
+you can either get the newsletter-server from [this github repo](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
 or easier just running it by pulling the docker image:  
 `docker pull germanvs/newsletter-server`
 and start it with: 
@@ -35,7 +31,7 @@ export const environment = {
 ```
 
 ### Build for production ###
-`ng build --prod`
+`npm run build:prod`
 
 ### Serve production version ###
 `npm run start:prod` and visit http://localhost:4300
