@@ -5,15 +5,13 @@
   </h1>
 </div>
 
-<mat-card style="margin: 2em;">
-
+<mat-card class="main-container">
   <button mat-button (click)="subscribeToNewsletter()" [disabled]="sub">Subscribe to push notifications</button>
   <button mat-flat-button (click)="sendNewsLetter()">Send to subscribers</button>
   <h3>Newsletters</h3>
 
-  <mat-card class="story" *ngFor="let newsletter of todoList">
+  <mat-card class="newsletter" *ngFor="let newsletter of todoList">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>
         <a href="#"><h3>{{newsletter.title}}</h3></a>
       </mat-card-title>
