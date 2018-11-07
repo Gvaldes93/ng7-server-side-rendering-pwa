@@ -1,7 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <img src="assets/images/todo.png" width=30>
-
   <h1>
     Welcome to live newsLetter!
   </h1>
@@ -12,11 +10,17 @@
   <button mat-button (click)="subscribeToNewsletter()" [disabled]="sub">Subscribe to push notifications</button>
   <button mat-flat-button (click)="sendNewsLetter()">Send to subscribers</button>
   <h3>Newsletters</h3>
-  <mat-list>
-    <mat-list-item *ngFor="let todo of todoList">
-      {{todo.title}}
-    </mat-list-item>
-  </mat-list>
+
+  <mat-card class="story" *ngFor="let newsletter of todoList">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>
+        <a href="#"><h3>{{newsletter.title}}</h3></a>
+      </mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src={{newsletter.imageUrl}} alt="image">
+  </mat-card>
+
 </mat-card>
 
 

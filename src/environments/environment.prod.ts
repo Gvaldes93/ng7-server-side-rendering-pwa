@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   webPush: {
-    publicKey: 'BCLcEdgwdfYHtunfJN0hWJ0YBXi3MGsfVPvFuACyfJ19QdejPgaoRIwoXMkwNQq3lKfyNYdAeV-TLT968TLJW6Q',
+    publicKey: 'BHPH7ChKeDLoG99waRH5BrkFwe9RkeHnuM1H6nSV2CGDvlYgik4R3xS60eLHvcGrzMamfmUSXkG2sbKBfNHudII',
   }
 };

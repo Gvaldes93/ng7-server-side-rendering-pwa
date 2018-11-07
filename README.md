@@ -18,8 +18,8 @@ Step by step instructions below.
 to pass them to the server and angular app in the next steps.
 
 #### run newsletter-server ####
-you can get the newsletter-server from [github](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
-or easier just run the docker image:  
+you can either get the newsletter-server from [github](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
+or easier just running it by pulling the docker image:  
 `docker pull germanvs/newsletter-server`
 and start it with: 
 `docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={publicKey} --env WEB_PUSH_PRIVATE_KEY={privateKey} -d germanvs/newsletter-server`
