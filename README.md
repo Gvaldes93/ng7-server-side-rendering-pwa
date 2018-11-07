@@ -4,9 +4,8 @@ Is an example of a Progressive Web app emulating a newsletter renderer:
 * Service workers with background downloading installation.
 * Push notifications. 
 * Application shell.
-* Application consumed data caching.
+* Server data caching in browser.
 * Flight mode.
-* One click installation (add to home screen)
 
 ## Requisites ##
 To enable the application stack (angular app + server) to send push notifications the angular app 
@@ -39,17 +38,17 @@ export const environment = {
 `ng build --prod`
 
 ### Serve production version ###
-`npm run start:prod` and visit http://localhost:8081
+`npm run start:prod` and visit http://localhost:4300
 
 ### Seeing PWA magic in action
 #### angular app - offline mode ####
-stop the angular server `ctrl + c`, now visit `http://localhost:8081` again and woala!
+stop the angular server `ctrl + c`, now visit `http://localhost:4300` again and woala!
 The application shell + service workers are making their job and your app is available offline! 
 Pretty cool! It still can communicate with the server normally. 
 
 #### both angular and server offline - Flight mode ####
 Stop the server by running `docker ps -a` grab the container id for newsletter-server and run `docker stop {containerID}`
-visit `http://localhost:8081` and you will notice the list of newsletters is still appearing in the app although the 
+visit `http://localhost:4300` and you will notice the list of newsletters is still appearing in the app although the 
 buttons fail to communicate with the server, this is due to caching on the service workers.
 in `ngsw-config.json` is where the service workers are configured to cache data, specifically this bit:
 ```$xslt
