@@ -18,7 +18,7 @@ you can either get the newsletter-server from [this github repo](https://github.
 or rather pull the server's docker image:  
 `docker pull germanvs/newsletter-server`
 then start it with: 
-`docker run -p 9000:9000 --env-file=web-push-credentials.env -d germanvs/newsletter-server`
+`docker run -p 9000:9000 --env-file=web-push-keys.env -d germanvs/newsletter-server`
 
 ### build and run ###
 `npm run build:start:prod`
