@@ -8,33 +8,21 @@ Is an example of a Progressive Web app emulating a newsletter renderer:
 * Flight mode.
 
 ## Quickstart
-#### Create vapid keys ####
-`npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
-to pass them to the server and angular app in the next steps.
+Install dependencies `npm install`
+
+#### Create web-push notifications key pairs ####
+execute `. generateWebPushKeys.sh`
 
 #### run newsletter-server ####
 you can either get the newsletter-server from [this github repo](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
-or easier just running it by pulling the docker image:  
+or rather pull the server's docker image:  
 `docker pull germanvs/newsletter-server`
-and start it with: 
-`docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={publicKey} --env WEB_PUSH_PRIVATE_KEY={privateKey} -d germanvs/newsletter-server`
+then start it with: 
+`docker run -p 9000:9000 --env-file=web-push-credentials.env -d germanvs/newsletter-server`
 
-#### config angular app ####
-update the config file `/src/environments/environment.prod.ts` to look like:
-```$xslt
-export const environment = {
-  production: true,
-  webPush: {
-    publicKey: '{publicKey}',
-  }
-};
-```
-
-### Build for production ###
-`npm run build:prod`
-
-### Serve production version ###
-`npm run start:prod` and visit http://localhost:4300
+### build and run ###
+`npm run build:start:prod`
+visit http://localhost:4300
 
 ### Seeing PWA magic in action
 #### angular app - offline mode ####
@@ -72,12 +60,12 @@ When service workers are instaleld in the browser every next load will be served
 This also applies even when there is a new version of your app. When at least one file changes
 is desirable that the whole app is downloaded and re-cached in the browser to avoid inconsistent bundles and possible
 outdated references causing problems. 
-the good news is that the new version is downloaded in the background and when is installed we can choose to notify our users
-or just do a hard reload :O .
+the good news is that the new version is downloaded in the background and when is installed the app can subscribe to this event and decide wha tto do 
+(whether reload the app or ask user for permission).
 
-Try this:
+Try bakcground install and prompt user to load new version when is ready:
 open `src/app/app.component.html` and add a `<p> this is my new PWA version! </p>`
 now run `ng build --prod` when it finishes re-start the app with this comand `npm run start:prod`
-visit `http://localhost:8081` and wait for ~5 seconds while SWs are installed.
+visit `http://localhost:8081` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
 
 more on [Angular Service Workers](https://angular.io/guide/service-worker-intro)

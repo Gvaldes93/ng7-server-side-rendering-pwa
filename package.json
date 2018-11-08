@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "http-server -g -o -c-1 -p 4300 dist/PWA",
+    "create:vapid-keys": "web-push generate-vapid-keys",
     "build:prod": "./node_modules/.bin/ng build --prod",
+    "start:prod": "http-server -g -o -c-1 -p 4300 dist/PWA",
+    "build:start:prod": "npm run build:prod && npm run start:prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
