@@ -66,6 +66,6 @@ the good news is that the new version is downloaded in the background and when i
 Try bakcground install and prompt user to load new version when is ready:
 open `src/app/app.component.html` and add a `<p> this is my new PWA version! </p>`
 now run `ng build --prod` when it finishes re-start the app with this comand `npm run start:prod`
-visit `http://localhost:8081` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
+visit `http://localhost:4300` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
 
 more on [Angular Service Workers](https://angular.io/guide/service-worker-intro)
