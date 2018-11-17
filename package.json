@@ -10,7 +10,12 @@
     "build:start:prod": "npm run build:prod && npm run start:prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compile:server": "webpack --config webpack.server.config.js --progress --colors",
+    "serve:ssr": "node dist/server",
+    "gzip:prod": "gzip -k -r dist/",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server && npm run gzip:prod",
+    "build:client-and-server-bundles": "ng build --prod && ng run PWA:server:production"
   },
   "private": true,
   "dependencies": {
@@ -24,9 +29,12 @@
     "@angular/material": "^6.4.6",
     "@angular/platform-browser": "^7.0.2",
     "@angular/platform-browser-dynamic": "^7.0.2",
+    "@angular/platform-server": "^7.0.2",
     "@angular/pwa": "^0.7.5",
     "@angular/router": "^7.0.2",
     "@angular/service-worker": "^7.0.2",
+    "@nguniversal/express-engine": "^7.0.2",
+    "@nguniversal/module-map-ngfactory-loader": "v7.0.2",
     "@types/express": "^4.0.36",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
@@ -52,8 +60,10 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "ts-loader": "^5.2.0",
     "ts-node": "^5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "webpack-cli": "^3.1.0"
   }
 }
