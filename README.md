@@ -1,6 +1,6 @@
 # PWA
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
-Is an example of a Progressive Web app emulating a newsletter renderer:
+Is an example of a Progressive Web app with Server Side Rendering emulating a newsletter renderer:
 * Service workers with background downloading installation.
 * Push notifications. 
 * Application shell.
@@ -28,7 +28,7 @@ visit http://localhost:4300
 
 ### Seeing PWA magic in action
 #### angular app - offline mode ####
-stop the angular server `ctrl + c`, now visit `http://localhost:4300` again and woala!
+stop the angular server `ctrl + c`, now visit `http://localhost:4000` again and woala!
 The application shell + service workers are making their job and your app is available offline! 
 Pretty cool! It still can communicate with the server normally. 
 
@@ -67,7 +67,7 @@ the good news is that the new version is downloaded in the background and when i
 
 Try bakcground install and prompt user to load new version when is ready:
 open `src/app/app.component.html` and add a `<p> this is my new PWA version! </p>`
-now run `ng build --prod` when it finishes re-start the app with this comand `npm run start:prod`
-visit `http://localhost:4300` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
+now run `npm run build:start:prod`
+visit `http://localhost:4000` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
 
 more on [Angular Service Workers](https://angular.io/guide/service-worker-intro)
