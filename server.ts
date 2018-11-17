@@ -42,7 +42,7 @@ app.get(/.js$|.css$/, (req, res, next) => {
     } else {
       req.url = req.url + '.gz';
       res.set('Content-Encoding', 'gzip');
-      res.set('Content-Type', 'text/javascript');
+      RegExp('.css.gz$').test(req.url) ? res.set('Content-Type', 'text/css') : res.set('Content-Type', 'text/javascript');
       next();
     }
   }

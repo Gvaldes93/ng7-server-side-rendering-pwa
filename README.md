@@ -5,6 +5,8 @@ Is an example of a Progressive Web app emulating a newsletter renderer:
 * Push notifications. 
 * Application shell.
 * Server data caching in browser.
+* Server Side Rendering
+* Lighthouse punctuation 93
 * Flight mode.
 
 ## Quickstart
@@ -13,14 +15,14 @@ Install dependencies `npm install`
 #### Create web-push notifications key pairs ####
 execute `. generateWebPushKeys.sh`
 
-#### run newsletter-server ####
+#### start newsletter-server ####
 you can either get the newsletter-server from [this github repo](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
 or rather pull the server's docker image:  
 `docker pull germanvs/newsletter-server`
 then start it with: 
 `docker run -p 9000:9000 --env-file=web-push-keys.env -d germanvs/newsletter-server`
 
-### build and run ###
+### build and start client app ###
 `npm run build:start:prod`
 visit http://localhost:4300
 
