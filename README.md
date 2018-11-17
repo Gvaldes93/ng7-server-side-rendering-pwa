@@ -1,4 +1,4 @@
-# PWA
+# Progressive Web App with Server Side Rendering 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 Is an example of a Progressive Web app with Server Side Rendering emulating a newsletter renderer:
 * Service workers with background downloading installation.
@@ -13,22 +13,21 @@ Is an example of a Progressive Web app with Server Side Rendering emulating a ne
 Install dependencies `npm install`
 
 #### Create web-push notifications key pairs ####
-execute `. generateWebPushKeys.sh`
+You just need to execute `. generateWebPushKeys.sh`
 
 #### start newsletter-server ####
-you can either get the newsletter-server from [this github repo](https://github.com/Gvaldes93/newsletter-server) and follow the instructions
-or rather pull the server's docker image:  
+Now pull the newsletter-server from dockerhub (~180mb)
 `docker pull germanvs/newsletter-server`
-then start it with: 
+and start it with this command 
 `docker run -p 9000:9000 --env-file=web-push-keys.env -d germanvs/newsletter-server`
 
 ### build and start client app ###
 `npm run build:start:prod`
-visit http://localhost:4300
+visit http://localhost:4000
 
 ### Seeing PWA magic in action
 #### angular app - offline mode ####
-stop the angular server `ctrl + c`, now visit `http://localhost:4000` again and woala!
+stop the angular server `ctrl + c`, now visit `http://localhost:4000` again and voilà!
 The application shell + service workers are making their job and your app is available offline! 
 Pretty cool! It still can communicate with the server normally. 
 
@@ -65,7 +64,7 @@ outdated references causing problems.
 the good news is that the new version is downloaded in the background and when is installed the app can subscribe to this event and decide wha tto do 
 (whether reload the app or ask user for permission).
 
-Try bakcground install and prompt user to load new version when is ready:
+Try background install and prompt user to load new version when is ready:
 open `src/app/app.component.html` and add a `<p> this is my new PWA version! </p>`
 now run `npm run build:start:prod`
 visit `http://localhost:4000` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
