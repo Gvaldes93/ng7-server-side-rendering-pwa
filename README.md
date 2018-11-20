@@ -26,6 +26,8 @@ and start it with this command
 visit http://localhost:4000
 
 ### Seeing PWA magic in action
+pwa capabilites were introduced with the pwa schematic `ng add @angular/pwa --project project-name`
+
 #### angular app - offline mode ####
 stop the angular server `ctrl + c`, now visit `http://localhost:4000` again and voilà!
 The application shell + service workers are making their job and your app is available offline! 
@@ -70,3 +72,10 @@ now run `npm run build:start:prod`
 visit `http://localhost:4000` and wait for ~5 seconds while SWs are installed for the reload permission prompt.
 
 more on [Angular Service Workers](https://angular.io/guide/service-worker-intro)
+
+### Server Side Rendering (SSR)
+The server side rendering setup was introduced with angular universal schematic 
+`ng add @nguniversal/express-engine --clientProject [project-name]` [source](https://medium.com/@MarkPieszak/angular-universal-server-side-rendering-deep-dive-dc442a6be7b7)
+ 
+ #### See SSR in action 
+ Go to your browser and turn javascript off, now visit http://localhost:4000 and the app should still load and show the text "Please enable JavaScript to continue using this application."
