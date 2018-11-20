@@ -13,7 +13,7 @@ Is an example of a Progressive Web app with Server Side Rendering emulating a ne
 Install dependencies `npm install`
 
 #### Create web-push notifications key pairs ####
-You just need to execute `. generateWebPushKeys.sh`
+You just need to execute `. generateWebPushKeys.sh` (more details on the file)
 
 #### start newsletter-server ####
 Now pull the newsletter-server from dockerhub (~180mb)

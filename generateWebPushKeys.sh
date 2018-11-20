@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# Generate web push vapid keys, stores the result in a .env file
-# and created the content for environment.prod.ts to be used on build time of the ng app
+# This script generates web-push vapid keys (public/private pair) and stores the keys in the following places:
+#       * in a .env file which is passed to the server's docker image on its run command (see Readme)
+#       * and the public key only in the angular prod environment file
+# -------------------------------------------------------------------------------
 
 WEB_PUSH_KEYS_FILE=web-push-keys.env
 ENVIRONMENT_PROD_TS_FILE=src/environments/environment.prod.ts
